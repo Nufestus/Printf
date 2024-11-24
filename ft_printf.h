@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printunbr.c                                     :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aammisse <aammisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 17:36:43 by aammisse          #+#    #+#             */
-/*   Updated: 2024/11/20 20:13:53 by aammisse         ###   ########.fr       */
+/*   Created: 2024/11/14 20:24:18 by aammisse          #+#    #+#             */
+/*   Updated: 2024/11/20 20:56:28 by aammisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-static void	ft_printnbr_helper(unsigned int n, int *res)
-{
-	if (n >= 10)
-	{
-		ft_printnbr_helper(n / 10, res);
-	}
-	*res += ft_putchar((n % 10) + '0');
-}
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
 
-int	ft_printunbr(unsigned int n)
-{
-	int	res;
+int	ft_printf(const char *buffer, ...);
+int	ft_printnbr(int n);
+int	ft_printstr(char *str);
+int	ft_putchar(int c);
+int	ft_printunbr(unsigned int n);
+int	ft_convert_hex(unsigned int a);
+int	ft_printhexlow(unsigned int a);
+int	ft_printhexup(unsigned int a);
+int	ft_printptr(void *ptr);
 
-	res = 0;
-	ft_printnbr_helper(n, &res);
-	return (res);
-}
+#endif

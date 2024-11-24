@@ -6,11 +6,11 @@
 /*   By: aammisse <aammisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 19:34:52 by aammisse          #+#    #+#             */
-/*   Updated: 2024/11/19 16:06:44 by aammisse         ###   ########.fr       */
+/*   Updated: 2024/11/20 20:46:29 by aammisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	convert_hex(unsigned int a)
 {
@@ -22,13 +22,11 @@ static int	convert_hex(unsigned int a)
 
 int	ft_printhexup(unsigned int a)
 {
-	long long int	b;
-	int				res;
+	int		res;
 
-	b = a;
 	res = 0;
-	if (b >= 16)
-		res += ft_printhexup(b / 16);
-	res += convert_hex(b % 16);
+	if (a >= 16)
+		res += ft_printhexup(a / 16);
+	res += convert_hex(a % 16);
 	return (res);
 }

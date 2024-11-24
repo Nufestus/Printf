@@ -6,29 +6,19 @@
 /*   By: aammisse <aammisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 19:33:25 by aammisse          #+#    #+#             */
-/*   Updated: 2024/11/19 16:06:42 by aammisse         ###   ########.fr       */
+/*   Updated: 2024/11/20 20:46:33 by aammisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
-int	convert_hex(unsigned int a)
-{
-	char	*hex;
-
-	hex = "0123456789abcdef";
-	return (write(1, &hex[a], 1));
-}
+#include "ft_printf.h"
 
 int	ft_printhexlow(unsigned int a)
 {
-	long long int	b;
-	int				res;
+	int	res;
 
-	b = a;
 	res = 0;
-	if (b >= 16)
-		res += ft_printhexlow(b / 16);
-	res += convert_hex(b % 16);
+	if (a >= 16)
+		res += ft_printhexlow(a / 16);
+	res += ft_convert_hex(a % 16);
 	return (res);
 }

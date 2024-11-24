@@ -6,11 +6,11 @@
 /*   By: aammisse <aammisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:43:45 by aammisse          #+#    #+#             */
-/*   Updated: 2024/11/19 16:06:47 by aammisse         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:58:44 by aammisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static void	ft_printnbr_helper(int n, int *res)
 {

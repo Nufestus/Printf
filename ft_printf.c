@@ -6,13 +6,13 @@
 /*   By: aammisse <aammisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:23:42 by aammisse          #+#    #+#             */
-/*   Updated: 2024/11/19 16:36:52 by aammisse         ###   ########.fr       */
+/*   Updated: 2024/11/23 12:35:55 by aammisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	parser(char c, va_list args)
+static int	parser(char c, va_list args)
 {
 	int	res;
 
@@ -31,7 +31,7 @@ int	parser(char c, va_list args)
 		res += ft_printhexup(va_arg(args, unsigned int));
 	else if (c == 'x')
 		res += ft_printhexlow(va_arg(args, unsigned int));
-	else if (c == '%')
+	else
 		res += write(1, &c, 1);
 	return (res);
 }
@@ -46,15 +46,15 @@ int	ft_printf(const char *buffer, ...)
 	i = 0;
 	res = 0;
 	if (write(1, NULL, 0) == -1)
-	{
-		va_end(args);
 		return (-1);
-	}
 	while (buffer[i] != '\0')
 	{
 		if (buffer[i] == '%')
 		{
-			res += parser(buffer[i + 1], args);
+			if (buffer[i + 1] != '\0')
+				res += parser(buffer[i + 1], args);
+			else
+				break ;
 			i++;
 		}
 		else

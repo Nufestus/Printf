@@ -6,11 +6,11 @@
 /*   By: aammisse <aammisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:46:48 by aammisse          #+#    #+#             */
-/*   Updated: 2024/11/19 16:06:53 by aammisse         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:58:49 by aammisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printstr(char *str)
 {

@@ -6,19 +6,11 @@
 /*   By: aammisse <aammisse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 19:38:41 by aammisse          #+#    #+#             */
-/*   Updated: 2024/11/19 16:06:50 by aammisse         ###   ########.fr       */
+/*   Updated: 2024/11/20 21:08:12 by aammisse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
-static int	convert_hex(size_t a)
-{
-	char	*hex;
-
-	hex = "0123456789abcdef";
-	return (write(1, &hex[a], 1));
-}
+#include "ft_printf.h"
 
 static int	printhex(size_t a)
 {
@@ -27,7 +19,7 @@ static int	printhex(size_t a)
 	res = 0;
 	if (a >= 16)
 		res += printhex(a / 16);
-	res += convert_hex(a % 16);
+	res += ft_convert_hex(a % 16);
 	return (res);
 }
 
